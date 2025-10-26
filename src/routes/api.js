@@ -5,6 +5,5 @@ const chartController = require("../controllers/chartController");
 
 router.get("/health", healthController.healthCheck);
 router.post("/chart/generate", chartController.generateChart);
-router.post("/chart/interpret", chartController.interpretChart);
 
 module.exports = router;
