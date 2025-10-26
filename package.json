@@ -1,0 +1,21 @@
+{
+  "name": "birth-chart-agent",
+  "version": "1.0.0",
+  "description": "ExpressJS Birth Chart/Astrology Agent with RAG and Vertex AI integration",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@google-cloud/aiplatform": "^1.11.0",
+    "@google/genai": "^1.27.0",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
+}
