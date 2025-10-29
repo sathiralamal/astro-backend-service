@@ -6,8 +6,8 @@ module.exports = async function generateBirthChart({
   timeOfBirth,
   placeOfBirth,
 }) {
-  const text = `Generate brith chart based on this given details , date of birth ${dateOfBirth} 
-  , date time ${timeOfBirth} and birth location ${placeOfBirth} based on generated birth chart tell me what is Eduction details`;
+  const text = `Generate brith chart based on this given brith details , date of birth : ${dateOfBirth} 
+  , brith time : ${timeOfBirth} and birth place is ${placeOfBirth} tell me about this person`;
   const response = genAIService(text);
   return response;
 };

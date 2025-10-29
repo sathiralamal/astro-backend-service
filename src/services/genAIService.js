@@ -2,6 +2,13 @@ const { GoogleGenAI } = require("@google/genai");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
+const SYSTEM_PROMPT = `Expert astrologer. Interpret charts focusing on:
+1. Key planetary aspects
+2. Personal traits
+3. Love/relationships
+4. Career guidance
+Be concise, positive, no absolutes.`;
+
 async function callGenAI(text) {
   if (!GEMINI_API_KEY) {
     const msg = "Missing GEMINI_API_KEY";
@@ -21,11 +28,15 @@ async function callGenAI(text) {
       vertexai: true,
     });
 
-    console.log("######## calling callGenAI");
-
     const response = await client.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: text,
+      contents: [{ text: `${SYSTEM_PROMPT}\n\n${text}` }],
+      generationConfig: {
+        maxOutputTokens: 500,
+        temperature: 0.7,
+        topK: 40,
+        topP: 0.95,
+      },
     });
     console.log("respons :", response);
 
